@@ -6,5 +6,5 @@ async function obtenerDatos() {
   } catch (error) {
     console.error("Error al obtener datos:", error);
     return [];
-  }
+  } 
 }
