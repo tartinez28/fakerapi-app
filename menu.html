@@ -1,0 +1,18 @@
+<nav>
+  <ul class="navbar">
+    <li><a href="#" onclick="cargarPagina('home')">Inicio</a></li>
+    <li><a href="#" onclick="cargarPagina('favoritos')">Favoritos</a></li>
+    <li><a href="#" onclick="cargarPagina('original')">Original</a></li>
+    <li><a href="#" onclick="cargarPagina('informativa')">Informativa</a></li>
+  </ul>
+</nav>
+
+<script>
+function cargarPagina(nombre) {
+  parent.document.getElementById("content").innerHTML = "";
+  if (nombre === "home") homePage();
+  if (nombre === "favoritos") favoritosPage();
+  if (nombre === "original") originalPage();
+  if (nombre === "informativa") informativaPage();
+}
+</script>
