@@ -119,3 +119,11 @@ input[type="text"] {
   border: 1px solid #ccc;
   margin-bottom: 20px;
 }
+.btn-eliminar {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.btn-eliminar:hover {
+  background-color: #b02a37;
+}
