@@ -19,6 +19,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  flex-wrap: wrap; /* 🔹 permite que el menú baje en pantallas pequeñas */
 }
 
 .logo {
@@ -27,12 +28,16 @@ body {
   margin: 0;
 }
 
+/* Menú de navegación */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
-  margin: 0;
+  margin: 10px 0 0;
   padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .nav-links a {
@@ -44,16 +49,6 @@ body {
 
 .nav-links a:hover {
   color: #00b7ff;
-}
-
-/* Iframe menú */
-iframe#menuFrame {
-  width: 100%;
-  height: 70px;
-  border: none;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 /* Contenido principal */
@@ -95,7 +90,7 @@ h2 {
   color: #555;
 }
 
-/* Botón */
+/* Botones */
 button {
   background-color: #007bff;
   color: white;
@@ -105,20 +100,14 @@ button {
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s;
+  margin-top: 5px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* Input buscador */
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-}
+/* Botón eliminar favoritos */
 .btn-eliminar {
   background-color: #dc3545;
   margin-left: 10px;
@@ -126,4 +115,55 @@ input[type="text"] {
 
 .btn-eliminar:hover {
   background-color: #b02a37;
+}
+
+/* Buscador y filtro */
+.busqueda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.busqueda input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 60%;
+  max-width: 300px;
+}
+
+.busqueda select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #content {
+    padding: 10px;
+    margin: 20px auto;
+  }
+
+  button {
+    width: 100%;
+  }
 }
