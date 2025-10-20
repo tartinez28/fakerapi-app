@@ -8,14 +8,7 @@
 </head>
 <body>
   <!-- Menú superior -->
-  <nav class="navbar">
-    <h1 class="logo">FakerAPI App</h1>
-    <ul class="nav-links">
-      <li><a href="#" onclick="homePage()">Inicio</a></li>
-      <li><a href="#" onclick="favoritosPage()">Favoritos</a></li>
-      <li><a href="#" onclick="originalPage()">Original</a></li>
-    </ul>
-  </nav>
+  <iframe src="menu.html" frameborder="0" id="menuFrame"></iframe>
 
   <!-- Contenido dinámico -->
   <div id="content"></div>
@@ -24,11 +17,11 @@
   <script src="home.js"></script>
   <script src="detalle.js"></script>
   <script src="favoritos.js"></script>
-  <script src="informativa.js"></script>
+  <script src="buscador.js"></script>
   <script src="original.js"></script>
+  <script src="informativa.js"></script>
 
   <script>
-    // Cargar la página principal por defecto
     document.addEventListener("DOMContentLoaded", homePage);
   </script>
 </body>
