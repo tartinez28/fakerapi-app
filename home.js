@@ -18,3 +18,6 @@ async function homePage() {
 
   window._datos = datos; // guardar en memoria temporal
 }
+
+// 👇 Ejecutar la función al cargar la página
+homePage();
