@@ -1,12 +1,10 @@
 function informativaPage() {
   const contenedor = document.getElementById("content");
   contenedor.innerHTML = `
-    <h2>Acerca de la App</h2>
+    <h2>Acerca de la Aplicación</h2>
     <div class="item">
-      <p><b>Nombre:</b> FakerAPI App</p>
-      <p><b>Desarrolladora:</b> Sara Giraldo</p>
-      <p><b>Descripción:</b> Aplicación web conectada a una API que muestra personas ficticias, permite buscar, ver detalles y guardar favoritos.</p>
-      <p><b>Versión:</b> 1.0</p>
+      <p>Esta app consume datos desde <strong>FakerAPI</strong> para mostrar información falsa de usuarios.</p>
+      <p>Desarrollada por <strong>Sara Giraldo</strong> como proyecto académico.</p>
     </div>
   `;
 }
