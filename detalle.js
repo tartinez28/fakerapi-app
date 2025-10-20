@@ -1,15 +1,16 @@
 function verDetalle(index) {
   const persona = window._datos[index];
   const contenedor = document.getElementById("content");
+
   contenedor.innerHTML = `
-    <h2>Detalle de la Persona</h2>
+    <h2>Detalle de ${persona.firstname}</h2>
     <div class="item">
-      <h3>${persona.firstname} ${persona.lastname}</h3>
-      <p><b>Email:</b> ${persona.email}</p>
-      <p><b>Teléfono:</b> ${persona.phone}</p>
-      <p><b>Dirección:</b> ${persona.address.city}, ${persona.address.country}</p>
-      <button onclick="agregarFavorito(${index})">❤️ Agregar a Favoritos</button>
-      <button onclick="homePage()">⬅️ Volver</button>
+      <p><strong>Nombre:</strong> ${persona.firstname} ${persona.lastname}</p>
+      <p><strong>Email:</strong> ${persona.email}</p>
+      <p><strong>Teléfono:</strong> ${persona.phone}</p>
+      <p><strong>Dirección:</strong> ${persona.address.city}</p>
+      <button onclick="agregarFavorito(${index})">Agregar a Favoritos</button>
+      <button onclick="homePage()">Volver</button>
     </div>
   `;
 }
