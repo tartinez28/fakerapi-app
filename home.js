@@ -16,8 +16,5 @@ async function homePage() {
     lista.appendChild(div);
   });
 
-  window._datos = datos; // guardar en memoria temporal
+  window._datos = datos; // guardar temporalmente
 }
-
-// 👇 Ejecutar la función al cargar la página
-homePage();
