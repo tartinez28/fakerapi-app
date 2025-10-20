@@ -1,54 +1,43 @@
-function obtenerFavoritos() {
-  const favs = localStorage.getItem("favoritos");
-  return favs ? JSON.parse(favs) : [];
-}
-
-function guardarFavoritos(favs) {
-  localStorage.setItem("favoritos", JSON.stringify(favs));
-}
-
-// 🔥 Nuevo método: guarda por objeto real, no solo índice
-function agregarFavoritoPorObjeto(index) {
+function agregarFavorito(index) {
   const persona = window._datos[index];
-  let favoritos = obtenerFavoritos();
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-  const yaExiste = favoritos.some(fav => fav.email === persona.email);
-  if (yaExiste) {
-    alert("⚠️ Esta persona ya está en tus favoritos");
-    return;
+  if (!favoritos.some(fav => fav.email === persona.email)) {
+    favoritos.push(persona);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    alert("Añadido a favoritos ❤️");
+  } else {
+    alert("Ya está en favoritos");
   }
-
-  favoritos.push(persona);
-  guardarFavoritos(favoritos);
-  alert(`✅ ${persona.firstname} agregado a favoritos`);
-}
-
-function eliminarFavorito(email) {
-  const favoritos = obtenerFavoritos().filter(fav => fav.email !== email);
-  guardarFavoritos(favoritos);
-  favoritosPage();
 }
 
 function favoritosPage() {
   const contenedor = document.getElementById("content");
-  contenedor.innerHTML = "<h2>Favoritos</h2><div id='lista'></div>";
+  contenedor.innerHTML = "<h2>Favoritos</h2><div id='listaFav'></div>";
 
-  const lista = document.getElementById("lista");
-  const favoritos = obtenerFavoritos();
+  const lista = document.getElementById("listaFav");
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
   if (favoritos.length === 0) {
-    lista.innerHTML = "<p style='text-align:center;color:#777;'>No tienes favoritos aún.</p>";
+    lista.innerHTML = "<p>No hay favoritos aún.</p>";
     return;
   }
 
-  favoritos.forEach(persona => {
+  favoritos.forEach((item, index) => {
     const div = document.createElement("div");
     div.className = "item";
     div.innerHTML = `
-      <h3>${persona.firstname} ${persona.lastname}</h3>
-      <p>${persona.email}</p>
-      <button onclick="eliminarFavorito('${persona.email}')" style="background-color:#dc3545;">Eliminar</button>
+      <h3>${item.firstname} ${item.lastname}</h3>
+      <p>${item.email}</p>
+      <button onclick="eliminarFavorito(${index})">❌ Quitar</button>
     `;
     lista.appendChild(div);
   });
+}
+
+function eliminarFavorito(index) {
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  favoritos.splice(index, 1);
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  favoritosPage();
 }
