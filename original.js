@@ -3,9 +3,8 @@ function originalPage() {
   contenedor.innerHTML = `
     <h2>Versión Original</h2>
     <div class="item">
-      <p>Esta pestaña puede mostrar el contenido original de la API o una prueba especial.</p>
-      <p>Ejemplo de endpoint usado:</p>
-      <code>https://fakerapi.it/api/v1/users?_quantity=10</code>
+      <p>Este apartado muestra la estructura base antes de aplicar los estilos y funciones adicionales.</p>
+      <p>Incluye la integración inicial de la API.</p>
     </div>
   `;
 }
